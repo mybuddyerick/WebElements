@@ -1,0 +1,48 @@
+:root {
+    --toggle-width: 160px;
+    --toggle-height: 76px;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: #D65656;
+}
+
+#toggle{
+    align-self: center;
+    width: var(--toggle-width);
+    height: var(--toggle-height);
+    background: rgba(1, 1, 1, 0.23);
+    background-blend-mode: multiply;
+    box-shadow: inset 0px 4px 26.8px rgba(0, 0, 0, 0.08);
+    border-radius: 100px;
+    cursor: pointer;
+    overflow: hidden;
+}
+#toggle::after{
+    content: "";
+    position: absolute;
+    margin: 5px;
+    margin-left: var(--margin-norm, 5px);
+    width: calc(var(--toggle-height) - 10px);
+    height: calc(var(--toggle-height) - 10px);
+    background: #D9D9D9;
+    box-shadow: 0px 1px 11.1px rgba(0, 0, 0, 0.35), inset 1px -3px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+    transition: all 0.1s cubic-bezier(0,.7,.78,1.86);
+}
+#toggle:hover::after{
+    margin: 8px;
+    margin-left: var(--margin-hover, 8px);
+    width: calc(var(--toggle-height) + 4px);
+    height: calc(var(--toggle-height) - 16px);
+}.toggle-on{
+     --margin-norm: calc(var(--toggle-width) - var(--toggle-height) + 5px);
+     --margin-hover: calc(var(--toggle-width) - var(--toggle-height) - 12px);
+ }
